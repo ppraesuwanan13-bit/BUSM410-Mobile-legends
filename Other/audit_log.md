@@ -52,3 +52,5 @@ Each entry is a time I checked my AI agent's work, grouped by the kind of check.
 | # | Date | What the AI said or did | How I checked it | Result |
 |---|---|---|---|---|
 | 12 | 2026-10-23 | Wrote an instruction in `AGENTS.md` ("If I ask a question, answer it. Only change files when I ask."). | Asked the AI to explain what the line meant to it, to test whether another agent would read it the same way. | **Rewritten.** The line was too vague. The new version gives examples of what counts as a question vs. a go-ahead and names the two standing exceptions. The AI also admitted it had broken the rule once (adding `.gitignore` without asking). |
+
+
