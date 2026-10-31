@@ -15,4 +15,3 @@ How I direct and check my AI agent. Examples are in [audit_log.md](audit_log.md)
 - **Question what doesn't make sense.** When something an agent wrote doesn't quite make sense, I question it until I get an answer that does. That's where I find most mistakes.
 
 The audit skill tells the agent how to keep these records. When a check suggests a new step, the agent proposes it and I approve it first.
-
