@@ -5,13 +5,13 @@
 
 ### Team Members
 - Suwanan Yamma
-- [Partner's Full Name]
+- Thipwigorn Khamjan
 
 ### Canvas Team
-Team [Number]
+Team Mobile Legends
 
 ### Dataset
-[Your selected dataset]
+bigquery-public-data.new_york_citibike.one_bike_ride
 
 ### Google Cloud Project
 Project ID: [Your Google Cloud Project ID]
