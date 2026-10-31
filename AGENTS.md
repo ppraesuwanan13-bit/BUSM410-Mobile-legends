@@ -16,3 +16,4 @@ Read this before helping on our project.
 - At the end of each session, remind us to push our branch and open a pull request. Our partner reviews it before we merge it into main.
 - If our work conflicts with our partner's, explain the conflict in plain words and help us decide what to keep.
 - Remind us to merge finished work into main before each due date. Our instructor grades main.
+.
