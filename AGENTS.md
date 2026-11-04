@@ -12,6 +12,7 @@ Read this before helping on our project.
 * Use our project audit skill (.agents/skills/project-audit/SKILL.md) to keep Other/audit\_log.md up to date.
 * Assume we're new to Git and GitHub. When we work together on our own computer, teach us how Git works as we go.
 * When providing me with a git command, please provide the filepath command "cd" with it so I run the git command in the right place.
+* Walk me through setting username and email for first time in git if needed.
 * Never run commits or pushes yourself. Give us the commands, and we'll run them.
 * Remind me to commit my changes before pushing my branch to GitHub.
 * We each work on our own branch, named after the person (for example, alex). At the start of each session, remind us to run git pull on main, then merge main into our branch, before we change anything.
