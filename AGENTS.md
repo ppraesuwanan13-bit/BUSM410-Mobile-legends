@@ -9,9 +9,9 @@ Read this before helping on our project.
 * Don't save or change files until we say so.
 * Back every claim about our data with a source, and say when something is your own conclusion.
 * Ask us to confirm a table or column exists before you use it.
-* Use our project audit skill (.agents/skills/project-audit/SKILL.md) to keep Other/audit_log.md up to date.
+* Use our project audit skill (.agents/skills/project-audit/SKILL.md) to keep `Other/audit_log.md` up to date.
 * Assume we're new to Git and GitHub. When we work together on our own computer, teach us how Git works as we go.
-* When providing me with a git command, please provide the filepath command "cd" with it so I run the git command in the right place.
+* When providing me with a git command, please provide the filepath command `cd` with it so I run the git command in the right place.
 * Walk me through setting username and email for first time in git if needed.
 * Never run commits or pushes yourself. Give us the commands, and we'll run them.
 * Remind me to commit my changes before pushing my branch to GitHub.
@@ -22,9 +22,13 @@ Read this before helping on our project.
 
 ## Project facts
 
-* The dataset `bigquery-public-data.new_york_citibike` contains `citibike_trips` and `citibike_stations`; BigQuery did not list `one_bike_ride`. See [sql/01_table_inventory.sql](sql/01_table_inventory.sql).
-* In `citibike_trips`, verified fields used so far are `starttime`, `start_station_id`, `start_station_name`, `end_station_id`, `end_station_name`, and `bikeid`. See [sql/02_trip_start_station_fields.sql](sql/02_trip_start_station_fields.sql) and [sql/05_duplicate_signature_counts.sql](sql/05_duplicate_signature_counts.sql).
-* The start-field check counted 58,937,715 total rows; 5,828,994 lack all three start fields; 0 future start dates were found on November 11, 2026. See [sql/03_cleaning_missing_future.sql](sql/03_cleaning_missing_future.sql) and [sql/04_cleaning_missing_overlap.sql](sql/04_cleaning_missing_overlap.sql).
-* For an analysis that needs start time and starting station, the working recommendation is to omit rows missing these fields from that calculation, while retaining the source rows. This is the agent's recommendation; the team has not confirmed it.
-* The duplicate signature uses `starttime`, `bikeid`, `start_station_id`, and `end_station_id`. It found 9 repeated signatures; full-row review found one identical pair and eight pairs that differ in other fields. No rows have been removed. See [sql/05_duplicate_signature_counts.sql](sql/05_duplicate_signature_counts.sql) and [sql/06_duplicate_full_row_review.sql](sql/06_duplicate_full_row_review.sql).
-* The project gap, benchmark, and value are not selected or measured yet. Do not invent figures. Record the question and evidence after the team approves them.
+* Dataset: `bigquery-public-data.new_york_citibike`; the confirmed tables are `citibike_trips` and `citibike_stations`. The dataset did not list `one_bike_ride`.
+* Verified trip fields used here include `starttime`, `start_station_id`, `start_station_name`, station latitude/longitude, `bikeid`, and end-station fields.
+* The required start-field check counted 58,937,715 total rows; 5,828,994 lacked all three required start fields; zero future start dates were found in the November 11, 2026 check. See `sql/03_cleaning_missing_future.sql` and `sql/04_cleaning_missing_overlap.sql`.
+* For this station/time analysis, exclude rows missing start time, station ID, or a nonblank station name from the calculation, while retaining source rows.
+* The duplicate screen found 9 repeated signatures: one pair identical across the full row and eight pairs different in other fields. The gap query counts distinct full rows; do not remove the nonidentical pairs.
+* Project question: How did recorded ride starts at station ID 318 change from Jan–Oct 2014 to Jan–Oct 2015?
+* BigQuery results supplied by the team: 46,934 distinct full-row ride records in Jan–Oct 2014 and 40,861 in Jan–Oct 2015, a decrease of 6,073 or 12.94%. Benchmark: station 318 in the same months one year earlier.
+* Team review showed station 318's reported name and coordinates stable in the observed matched months; no station 318 rows appeared in Nov–Dec 2015. Do not infer why.
+* Station 540 was set aside because its monthly output showed a changed name/coordinate and months with no observed rides in the proposed comparison window. This is not proof the station closed or relocated.
+* The finding is descriptive, not causal. Do not call 6,073 rides lost revenue. The trip table lacks fare-per-trip/payment information; the State Comptroller notes trip counts do not directly correspond to revenue: https://www.osc.ny.gov/files/state-agencies/audits/pdf/sga-2026-23n5.pdf

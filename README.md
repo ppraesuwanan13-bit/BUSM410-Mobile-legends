@@ -9,34 +9,28 @@
 | BigQuery dataset and table | `bigquery-public-data.new_york_citibike.citibike_trips` |
 | Google Cloud project ID | `striking-canyon-509700-b8` |
 
-## Project overview
-
-Our team will analyze New York City Citi Bike trip data using SQL and BigQuery. We will explore trip patterns, look for useful insights, and present our findings with visualizations and recommendations.
-
 ## Problem framing
 
-*The project gap, benchmark, and value are not measured yet. Initial data-quality checks and their results are documented in [sql/README.md](sql/README.md).*
-
-## Research question
-
-*To be decided.*
+At Citi Bike station 318 (E 43 St & Vanderbilt Ave), recorded ride starts fell from 46,934 in January–October 2014 to 40,861 in the same months of 2015. The benchmark is the same station in the same calendar months one year earlier, which controls for seasonal timing. The difference is 46,934 − 40,861 = **6,073 fewer trips**; 6,073 ÷ 46,934 × 100 = **12.94% lower**. The gap is worth 6,073 fewer recorded trips by the dataset's count. The available table does not support a reliable dollar estimate because it lacks fare-per-trip/payment data, and the [State Comptroller notes trip totals do not directly correspond to revenue](https://www.osc.ny.gov/files/state-agencies/audits/pdf/sga-2026-23n5.pdf). See the [analysis SQL](sql/07_station_318_matched_period.sql) and [findings](findings.md).
 
 ## Explore the work
 
-| **File or folder** | **What it contains** |
+| File or folder | What it contains |
 |---|---|
-| [charter.md](charter.md) | Project question, scope, and intended decision |
-| [findings.md](findings.md) | Results, visualizations, and recommendations |
-| [sql/README.md](sql/README.md) | Query process, cleaning choices, and current data checks |
+| [charter.md](charter.md) | Question, decision, scope, and success criteria |
+| [findings.md](findings.md) | Measured gap, benchmark, value, limits, and chart |
+| [sql/README.md](sql/README.md) | Query results, cleaning choices, and interpretation |
 | [sql/](sql/) | Numbered BigQuery queries |
-| [visuals/](visuals/) | Charts and other project visuals |
-| [AGENTS.md](AGENTS.md) | Project facts and instructions for the agent |
-| [Other/audit_protocol.md](Other/audit_protocol.md) | How the team checks the agent's work |
-| [Other/audit_log.md](Other/audit_log.md) | The team's recorded checks |
+| [visuals/gap_chart.png](visuals/gap_chart.png) | Matched-period ride-count chart |
+| [Other/DATASET.md](Other/DATASET.md) | Dataset documentation links |
+| [Other/citibike_erd.dbml](Other/citibike_erd.dbml) | Table diagram in DBML |
+| [Other/audit_protocol.md](Other/audit_protocol.md) | How the team directs and checks the agent |
+| [Other/audit_log.md](Other/audit_log.md) | Logged data checks and analysis changes |
+| [AGENTS.md](AGENTS.md) | Project facts and working instructions |
 
-## Findings
+## Dataset documentation
 
-*Pending gap analysis.*
+The [Citi Bike system data page](https://citibikenyc.com/system-data) explains the trip-history data and provides public downloads. The [NYC Open Data record](https://data.cityofnewyork.us/dataset/Citi-Bike-System-Data/vsnr-94wk) identifies the dataset provider and points to the source.
 
 ## Who did the work
 
