@@ -6,12 +6,16 @@
 |---|---|
 | Team members | Suwanan Yamma; Thipwigorn Khamjan |
 | Canvas team | Team Mobile Legends |
-| BigQuery dataset and table | `bigquery-public-data.new_york_citibike.one_bike_ride` |
+| BigQuery dataset and table | `bigquery-public-data.new_york_citibike.citibike_trips` |
 | Google Cloud project ID | `striking-canyon-509700-b8` |
 
 ## Project overview
 
 Our team will analyze New York City Citi Bike trip data using SQL and BigQuery. We will explore trip patterns, look for useful insights, and present our findings with visualizations and recommendations.
+
+## Problem framing
+
+*The project gap, benchmark, and value are not measured yet. Initial data-quality checks and their results are documented in [sql/README.md](sql/README.md).*
 
 ## Research question
 
@@ -21,16 +25,18 @@ Our team will analyze New York City Citi Bike trip data using SQL and BigQuery. 
 
 | **File or folder** | **What it contains** |
 |---|---|
-| `charter.md` | Project question, scope, and intended decision |
-| `findings.md` | Results, visualizations, and recommendations |
-| `sql/` | BigQuery queries and notes |
-| `visuals/` | Charts and other project visuals |
-
-*Add links to these files and folders as you create them.*
+| [charter.md](charter.md) | Project question, scope, and intended decision |
+| [findings.md](findings.md) | Results, visualizations, and recommendations |
+| [sql/README.md](sql/README.md) | Query process, cleaning choices, and current data checks |
+| [sql/](sql/) | Numbered BigQuery queries |
+| [visuals/](visuals/) | Charts and other project visuals |
+| [AGENTS.md](AGENTS.md) | Project facts and instructions for the agent |
+| [Other/audit_protocol.md](Other/audit_protocol.md) | How the team checks the agent's work |
+| [Other/audit_log.md](Other/audit_log.md) | The team's recorded checks |
 
 ## Findings
 
-*Pending analysis.*
+*Pending gap analysis.*
 
 ## Who did the work
 
