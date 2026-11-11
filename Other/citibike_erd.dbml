@@ -1,0 +1,11 @@
+// Only citibike_trips is used by the analysis; no table join is performed.
+Table citibike_trips {
+  starttime datetime
+  start_station_id int
+  start_station_name string
+  start_station_latitude float
+  start_station_longitude float
+  end_station_id int
+  end_station_name string
+  bikeid int
+}

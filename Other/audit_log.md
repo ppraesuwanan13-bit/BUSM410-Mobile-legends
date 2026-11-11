@@ -1,37 +1,46 @@
 # Audit Log
 
-This log records checks made by the Mobile Legends team on the Citi Bike project. The first entries cover data-source and cleaning checks; the project gap has not yet been measured.
+This log records the team's BigQuery checks, corrections, and analysis choices. The team ran the queries and supplied the results; the agent documented them here.
 
 | Category | What it means | Entries |
-|---|---|---|
-| [Caught an error](#caught-an-error) | The team found an incorrect statement or project fact. | 1 |
-| [Verified a claim](#verified-a-claim) | The team checked a claim against BigQuery or documentation. | 3 |
-| [Separated fact from opinion](#separated-fact-from-opinion) | The team identified an inference as an inference. | 0 |
-| [Changed the analysis](#changed-the-analysis) | The team's judgment changed the approach or framing. | 0 |
-| [Improved the agent's instructions](#improved-the-agents-instructions) | The team changed how the agent is directed. | 0 |
+|---|---|---:|
+| [Caught an error](#caught-an-error) | The team found an incorrect statement or calculation. | 2 |
+| [Verified a claim](#verified-a-claim) | The team checked a claim against BigQuery or a source. | 5 |
+| [Separated fact from opinion](#separated-fact-from-opinion) | A conclusion was marked as an inference or limit. | 1 |
+| [Changed the analysis](#changed-the-analysis) | Evidence changed the project approach. | 1 |
+| [Improved the agent's instructions](#improved-the-agents-instructions) | Project facts or directions were clarified. | 1 |
 
 ## Caught an error
 
 | # | Date | What the AI said or did | How I checked it | Result |
 |---|---|---|---|---|
-| 1 | 2026-11-11 | The repository listed `one_bike_ride` as the trip table. | Ran the table-list query in BigQuery. | **Corrected the project fact.** The dataset listed `citibike_trips` and `citibike_stations`; it did not list `one_bike_ride`. |
+| 1 | 2026-11-11 | The repository listed `one_bike_ride` as the trip table. | Ran the table inventory query. | **Corrected.** BigQuery listed `citibike_trips` and `citibike_stations`. |
+| 2 | 2026-11-11 | An early comparison counted all of 2014 but only January–October 2015 for station 318. | Compared the query's date filters with the monthly results, then reran both years for January–October. | **Corrected.** Use 46,934 rides in Jan–Oct 2014 and 40,861 in Jan–Oct 2015. |
 
 ## Verified a claim
 
 | # | Date | What the AI said or did | How I checked it | Result |
 |---|---|---|---|---|
-| 2 | 2026-11-11 | The cleaning check showed 58,937,715 total rows, 5,828,994 missing each start field, and 0 future start dates. | Ran the cleaning query in BigQuery and checked the result. | Confirmed the counts. The follow-up overlap query showed those 5,828,994 rows were missing all three start fields. |
-| 3 | 2026-11-11 | The start-field missing counts referred to the same rows. | Compared the `missing_all_three` and `missing_any` results in BigQuery. | Confirmed both counts were 5,828,994. |
-| 4 | 2026-11-11 | The repeated-signature check found nine candidate groups, and only one pair was identical across all fields. | Ran the signature count and full-row comparison queries in BigQuery. | Confirmed 9 signatures with 2 rows each; one pair had one distinct full row, and eight pairs had two distinct full rows. No records were removed. |
+| 1 | 2026-11-11 | The table has 58,937,715 rows; 5,828,994 lacked all three required start fields; no future dates were found. | Ran the cleaning and overlap queries in BigQuery. | Confirmed the results. |
+| 2 | 2026-11-11 | The duplicate screen found nine repeated signatures, one exact full-row pair, and eight nonidentical pairs. | Ran the signature and full-row checks. | Confirmed; no source rows were deleted. |
+| 3 | 2026-11-11 | 2014 and 2015 had complete calendar-year coverage; other listed years were partial. | Ran the yearly coverage query. | Confirmed the dates and counts recorded in `sql/README.md`. |
+| 4 | 2026-11-11 | Station 318 had 46,934 Jan–Oct 2014 trips and 40,861 Jan–Oct 2015 trips after exact full-row duplicates were counted once. | Reran the matched-period query in BigQuery. | Confirmed the two counts. |
+| 5 | 2026-11-11 | Station 318's reported name and coordinates remained stable in observed Jan–Oct months, and there were no station 318 rows in Nov–Dec 2015. | Reviewed the monthly station query results. | Confirmed the returned values; this does not establish why no late-2015 trips appear. |
 
 ## Separated fact from opinion
 
-No entries yet.
+| # | Date | Data fact | Interpretation or limit |
+|---|---|---|---|
+| 1 | 2026-11-11 | The matched-period count decreased by 6,073 rides (12.94%). | The data does not explain why. We do not call this lost revenue or attribute it to a station closure or move. |
 
 ## Changed the analysis
 
-No entries yet.
+| # | Date | Evidence | Change |
+|---|---|---|---|
+| 1 | 2026-11-11 | Station 540's monthly output showed a name/coordinate change and months with no observed rides; station 318 had stable reported location for the matched months. | Set aside station 540 and use station 318 for the matched Jan–Oct comparison. |
 
 ## Improved the agent's instructions
 
-No entries yet.
+| # | Date | Instruction changed | Reason |
+|---|---|---|---|
+| 1 | 2026-11-11 | Added the measured station 318 gap, benchmark, and revenue limitation to `AGENTS.md`. | Preserve the approved analysis facts and prevent unsupported revenue or causal claims. |
