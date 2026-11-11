@@ -11,7 +11,7 @@
 
 ## Problem framing
 
-At Citi Bike station 318 (E 43 St & Vanderbilt Ave), recorded ride starts fell from 46,934 in January–October 2014 to 40,861 in the same months of 2015, a decrease of 6,073 trips or 12.94%. We compare the same station and calendar months to control for seasonal timing; the gap is worth 6,073 fewer recorded trips by the dataset's count. The available trip table does not support a reliable dollar estimate because it lacks fare-per-trip/payment data, and the State Comptroller notes trip totals do not directly correspond to revenue. See the [analysis SQL](sql/07_station_318_matched_period.sql), [findings](findings.md), and [source audit](https://www.osc.ny.gov/files/state-agencies/audits/pdf/sga-2026-23n5.pdf).
+At Citi Bike station 318 (E 43 St & Vanderbilt Ave), recorded ride starts fell from 46,934 in January–October 2014 to 40,861 in the same months of 2015. The benchmark is the same station in the same calendar months one year earlier, which controls for seasonal timing. The difference is 46,934 − 40,861 = **6,073 fewer trips**; 6,073 ÷ 46,934 × 100 = **12.94% lower**. The gap is worth 6,073 fewer recorded trips by the dataset's count. The available table does not support a reliable dollar estimate because it lacks fare-per-trip/payment data, and the [State Comptroller notes trip totals do not directly correspond to revenue](https://www.osc.ny.gov/files/state-agencies/audits/pdf/sga-2026-23n5.pdf). See the [analysis SQL](sql/07_station_318_matched_period.sql) and [findings](findings.md).
 
 ## Explore the work
 
