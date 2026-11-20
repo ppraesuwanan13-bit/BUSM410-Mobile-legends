@@ -1,6 +1,6 @@
 # Mobile Legends
 
-## BUSM 410 Semester Project — CP0
+## BUSM 410 Semester Project — CP2: Drivers and Model
 
 | **Item** | **Value** |
 |---|---|
@@ -11,17 +11,26 @@
 
 ## Problem framing
 
-At Citi Bike station 318 (E 43 St & Vanderbilt Ave), recorded ride starts fell from 46,934 in January–October 2014 to 40,861 in the same months of 2015. The benchmark is the same station in the same calendar months one year earlier, which controls for seasonal timing. The difference is 46,934 − 40,861 = **6,073 fewer trips**; 6,073 ÷ 46,934 × 100 = **12.94% lower**. The gap is worth 6,073 fewer recorded trips by the dataset's count. The available table does not support a reliable dollar estimate because it lacks fare-per-trip/payment data, and the [State Comptroller notes trip totals do not directly correspond to revenue](https://www.osc.ny.gov/files/state-agencies/audits/pdf/sga-2026-23n5.pdf). See the [analysis SQL](sql/07_station_318_matched_period.sql) and [findings](findings.md).
+Across 311 station IDs with consistent recorded coordinates and rides in both matched periods, recorded ride starts rose from 6,647,007 in January–October 2014 to 7,307,992 in the same months of 2015: **660,985 more rides (+9.94%)**. This is a stable-location subset, not a systemwide total. Individual stations moved in different directions: 246 had more recorded rides and 65 had fewer. The comparison is descriptive and does not explain why activity changed. The trip table does not contain fare-per-trip or payment amounts, so we do not estimate revenue. See the [SQL query log](sql/README.md).
+
+## CP2: station characteristics and ride change
+
+We compared average ride change across three groups of stations for subscriber share, weekday peak-hour share, and latitude. Average change was positive in every group. The northern latitude third had the largest average increase (+2,931.7 rides); the southern third had the smallest (+841.1). In the linear regression, latitude was the only predictor with a p-value below 0.05 (coefficient +51,542.5 rides per degree, p = 0.00062). The model's R² was 0.0792, and its mean absolute error was about 2,595 rides. It was evaluated on the same 311 stations used for training, so it does not measure performance on new stations. These are associations, not causes. See the [model card](model/model_card.md) and [SQL query log](sql/README.md).
 
 ## Explore the work
 
 | File or folder | What it contains |
 |---|---|
 | [charter.md](charter.md) | Question, decision, scope, and success criteria |
-| [findings.md](findings.md) | Measured gap, benchmark, value, limits, and chart |
 | [sql/README.md](sql/README.md) | Query results, cleaning choices, and interpretation |
 | [sql/](sql/) | Numbered BigQuery queries |
-| [visuals/gap_chart.png](visuals/gap_chart.png) | Matched-period ride-count chart |
+| [sql/10_station_analysis_table.sql](sql/10_station_analysis_table.sql) | CP2 station-level outcome and predictor table |
+| [sql/11_analysis_table_quality_check.sql](sql/11_analysis_table_quality_check.sql) | CP2 missing-value, range, and arithmetic check |
+| [sql/12_station_change_linear_regression.sql](sql/12_station_change_linear_regression.sql) | CP2 regression model |
+| [sql/13_station_change_model_weights.sql](sql/13_station_change_model_weights.sql) | Regression coefficients and p-values |
+| [model/model_card.md](model/model_card.md) | Regression metrics, coefficients, and limitations |
+| [model/notes.md](model/notes.md) | Model work summary |
+| [visuals/gap_chart.png](visuals/gap_chart.png) | Matched-period chart for station 318, included as an example station |
 | [Other/DATASET.md](Other/DATASET.md) | Dataset documentation links |
 | [Other/citibike_erd.dbml](Other/citibike_erd.dbml) | Table diagram in DBML |
 | [Other/audit_protocol.md](Other/audit_protocol.md) | How the team directs and checks the agent |
