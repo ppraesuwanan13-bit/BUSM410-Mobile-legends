@@ -31,6 +31,7 @@ We compared average ride change across three groups of stations for subscriber s
 | [model/model_card.md](model/model_card.md) | Regression metrics, coefficients, and limitations |
 | [model/notes.md](model/notes.md) | Model work summary |
 | [visuals/gap_chart.png](visuals/gap_chart.png) | Matched-period chart for station 318, included as an example station |
+| [visuals/cp2_station_group_comparisons.svg](visuals/cp2_station_group_comparisons.svg) | CP2 comparison of mean ride change across all 311 stable-location stations, split by subscriber share, weekday peak share, and latitude |
 | [Other/DATASET.md](Other/DATASET.md) | Dataset documentation links |
 | [Other/citibike_erd.dbml](Other/citibike_erd.dbml) | Table diagram in DBML |
 | [Other/audit_protocol.md](Other/audit_protocol.md) | How the team directs and checks the agent |
