@@ -28,6 +28,7 @@ We compared average ride change across three groups of stations for subscriber s
 | [sql/11_analysis_table_quality_check.sql](sql/11_analysis_table_quality_check.sql) | CP2 missing-value, range, and arithmetic check |
 | [sql/12_station_change_linear_regression.sql](sql/12_station_change_linear_regression.sql) | CP2 regression model |
 | [sql/13_station_change_model_weights.sql](sql/13_station_change_model_weights.sql) | Regression coefficients and p-values |
+| [sql/14_station_predictor_group_means.sql](sql/14_station_predictor_group_means.sql) | Part A group means for observed predictor values and chart terciles |
 | [model/model_card.md](model/model_card.md) | Regression metrics, coefficients, and limitations |
 | [model/notes.md](model/notes.md) | Model work summary |
 | [visuals/gap_chart.png](visuals/gap_chart.png) | Matched-period chart for station 318, included as an example station |

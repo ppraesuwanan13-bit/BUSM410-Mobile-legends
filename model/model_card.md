@@ -45,6 +45,10 @@ Unstandardized weights from BigQuery ML's `ML.ADVANCED_WEIGHTS`, ordered by p-va
 
 Latitude has the strongest evidence of association because its p-value is 0.000619, below 0.05. Longitude has the next-lowest predictor p-value (0.092585), but it is above 0.05, so we do not have strong evidence that longitude is associated with ride change in this model. There is only one statistically significant predictor. The latitude coefficient is in rides per degree, a large unit relative to the small latitude range in this New York station sample. It should not be read as the expected effect of moving a station. The coefficient is a conditional association in this particular model, not evidence that latitude caused ridership to change.
 
+## Driver interpretation
+
+Latitude's coefficient is positive (p = 0.000619), so holding the other predictors steady, a higher latitude goes with a higher `ride_change`. It is the only predictor with p < 0.05. Longitude has the next-smallest p-value and a negative coefficient (p = 0.092585), so a higher longitude goes with a lower fitted `ride_change` while holding the other predictors steady; because its p-value is above 0.05, this pattern could be due to chance and is not a confirmed driver.
+
 ## Limits and responsible use
 
 - The model uses only 311 stations from a stable-location subset, not every Citi Bike station.

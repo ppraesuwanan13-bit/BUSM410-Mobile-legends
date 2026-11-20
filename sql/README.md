@@ -23,6 +23,7 @@ The dataset is `bigquery-public-data.new_york_citibike`. BigQuery listed `citibi
 | [11_analysis_table_quality_check.sql](11_analysis_table_quality_check.sql) | Check the station table for missing/impossible values and verify `ride_change`. | 311 rows and 311 unique stations; 0 rows with missing values, 0 with impossible values, and 0 outcome mismatches. Ride totals: 6,647,007 in 2014 and 7,307,992 in 2015 (run 2026-11-19). |
 | [12_station_change_linear_regression.sql](12_station_change_linear_regression.sql) | Fit the CP2 linear regression to the station analysis table. | Model `station_change_linear_reg` created with p-values, dummy encoding, 50 maximum iterations, and early stopping disabled; split option omitted as instructed (run 2026-11-19). |
 | [13_station_change_model_weights.sql](13_station_change_model_weights.sql) | Retrieve unstandardized regression weights, standard errors, and p-values. | Latitude was the only predictor with p < 0.05 (run 2026-11-19); see [model card](../model/model_card.md). |
+| [14_station_predictor_group_means.sql](14_station_predictor_group_means.sql) | Compare mean ride change at every observed value of subscriber share, weekday peak-hour share, and latitude; also reproduce chart terciles. | Saved to meet the Part A GROUP BY requirement. Run it in BigQuery and confirm the tercile output against the previously recorded results before submission. |
 
 ## CP2 analysis table
 
@@ -32,7 +33,7 @@ The table keeps station IDs with exactly one start-coordinate pair after roundin
 
 ## Exploratory group comparisons and model
 
-Across the 311 included stations, total rides increased by 660,985 (+9.94%); 246 stations increased and 65 decreased. In tercile comparisons, average ride change was positive in every group: subscriber-share groups averaged +2,260.1 (low), +1,746.3 (middle), and +2,372.0 (high) rides; weekday peak-share groups averaged +2,412.8, +1,869.8, and +2,093.1; latitude bands averaged +841.1 (southern), +2,611.0 (middle), and +2,931.7 (northern). These are descriptive group averages, not causal effects. The three group comparison results and regression output were run in BigQuery on 2026-11-19.
+Across the 311 included stations, total rides increased by 660,985 (+9.94%); 246 stations increased and 65 decreased. Subscriber-share tercile means were positive but non-monotonic: +2,260.1 rides in the low group, +1,746.3 in the middle, and +2,372.0 in the high group. Weekday peak-share means were also positive and non-monotonic: +2,412.8 (low), +1,869.8 (middle), and +2,093.1 (high). Latitude-band means were +841.1 (south), +2,611.0 (middle), and +2,931.7 (north), so the middle and northern groups had larger average gains than the south. These are descriptive group averages, not causal effects. The previously recorded group results were run in BigQuery on 2026-11-19; [query 14](14_station_predictor_group_means.sql) now saves both observed-value comparisons and the chart's tercile summary for rechecking. The query has not yet been rerun.
 
 The [CP2 station-group chart](../visuals/cp2_station_group_comparisons.svg) displays these mean changes for the full stable-location sample. The earlier [Station 318 chart](../visuals/gap_chart.png) is retained as a single-station example from CP1.
 
