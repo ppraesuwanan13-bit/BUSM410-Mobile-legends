@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="700" viewBox="0 0 1500 700" role="img" aria-labelledby="title desc">
+<title id="title">Ride changes across 311 stable-location stations</title>
+<desc id="desc">Three bar chart panels show average January to October ride change from 2014 to 2015. Subscriber-share groups average plus 2,260 low, plus 1,746 middle, and plus 2,372 high. Weekday peak-share groups average plus 2,413 low, plus 1,870 middle, and plus 2,093 high. Latitude bands average plus 841 south, plus 2,611 middle, and plus 2,932 north. All averages are positive.</desc>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<style>text { font-family: Arial, Helvetica, sans-serif; } .ink { fill: #18243A; } .muted { fill: #5D6B80; } .grid { stroke: #D9E0E8; stroke-width: 1.5; } .bar { fill: #3D73B9; }</style>
+<text x="80" y="70" class="ink" font-size="32" font-weight="700">Ride changes across 311 stable-location stations</text>
+<text x="80" y="112" class="muted" font-size="18">Average January–October 2015 rides minus the same months in 2014</text>
+<text x="80" y="382" transform="rotate(-90 80 382)" class="muted" font-size="16" text-anchor="middle">Average ride change per station (rides)</text>
+
+<text x="126" y="540.0" class="muted" font-size="14" text-anchor="end">0</text>
+<text x="126" y="450.0" class="muted" font-size="14" text-anchor="end">1,000</text>
+<text x="126" y="360.0" class="muted" font-size="14" text-anchor="end">2,000</text>
+<text x="126" y="270.0" class="muted" font-size="14" text-anchor="end">3,000</text>
+<text x="355.0" y="165" class="ink" font-size="18" font-weight="600" text-anchor="middle">Subscriber share (terciles)</text>
+<line x1="150" y1="535.0" x2="542" y2="535.0" class="grid"/>
+<line x1="150" y1="445.0" x2="542" y2="445.0" class="grid"/>
+<line x1="150" y1="355.0" x2="542" y2="355.0" class="grid"/>
+<line x1="150" y1="265.0" x2="542" y2="265.0" class="grid"/>
+<rect x="205.0" y="331.6" width="66" height="203.4" rx="5" class="bar"/>
+<text x="238" y="319.6" class="ink" font-size="16" font-weight="600" text-anchor="middle">+2,260</text>
+<text x="238" y="565" class="muted" font-size="15" text-anchor="middle">Low</text>
+<rect x="313.0" y="377.8" width="66" height="157.2" rx="5" class="bar"/>
+<text x="346" y="365.8" class="ink" font-size="16" font-weight="600" text-anchor="middle">+1,746</text>
+<text x="346" y="565" class="muted" font-size="15" text-anchor="middle">Middle</text>
+<rect x="421.0" y="321.5" width="66" height="213.5" rx="5" class="bar"/>
+<text x="454" y="309.5" class="ink" font-size="16" font-weight="600" text-anchor="middle">+2,372</text>
+<text x="454" y="565" class="muted" font-size="15" text-anchor="middle">High</text>
+<text x="765.0" y="165" class="ink" font-size="18" font-weight="600" text-anchor="middle">Weekday peak share (terciles)</text>
+<line x1="560" y1="535.0" x2="952" y2="535.0" class="grid"/>
+<line x1="560" y1="445.0" x2="952" y2="445.0" class="grid"/>
+<line x1="560" y1="355.0" x2="952" y2="355.0" class="grid"/>
+<line x1="560" y1="265.0" x2="952" y2="265.0" class="grid"/>
+<rect x="615.0" y="317.8" width="66" height="217.2" rx="5" class="bar"/>
+<text x="648" y="305.8" class="ink" font-size="16" font-weight="600" text-anchor="middle">+2,413</text>
+<text x="648" y="565" class="muted" font-size="15" text-anchor="middle">Low</text>
+<rect x="723.0" y="366.7" width="66" height="168.3" rx="5" class="bar"/>
+<text x="756" y="354.7" class="ink" font-size="16" font-weight="600" text-anchor="middle">+1,870</text>
+<text x="756" y="565" class="muted" font-size="15" text-anchor="middle">Middle</text>
+<rect x="831.0" y="346.6" width="66" height="188.4" rx="5" class="bar"/>
+<text x="864" y="334.6" class="ink" font-size="16" font-weight="600" text-anchor="middle">+2,093</text>
+<text x="864" y="565" class="muted" font-size="15" text-anchor="middle">High</text>
+<text x="1175.0" y="165" class="ink" font-size="18" font-weight="600" text-anchor="middle">Station latitude (bands)</text>
+<line x1="970" y1="535.0" x2="1362" y2="535.0" class="grid"/>
+<line x1="970" y1="445.0" x2="1362" y2="445.0" class="grid"/>
+<line x1="970" y1="355.0" x2="1362" y2="355.0" class="grid"/>
+<line x1="970" y1="265.0" x2="1362" y2="265.0" class="grid"/>
+<rect x="1025.0" y="459.3" width="66" height="75.7" rx="5" class="bar"/>
+<text x="1058" y="447.3" class="ink" font-size="16" font-weight="600" text-anchor="middle">+841</text>
+<text x="1058" y="565" class="muted" font-size="15" text-anchor="middle">South</text>
+<rect x="1133.0" y="300.0" width="66" height="235.0" rx="5" class="bar"/>
+<text x="1166" y="288.0" class="ink" font-size="16" font-weight="600" text-anchor="middle">+2,611</text>
+<text x="1166" y="565" class="muted" font-size="15" text-anchor="middle">Middle</text>
+<rect x="1241.0" y="271.1" width="66" height="263.9" rx="5" class="bar"/>
+<text x="1274" y="259.1" class="ink" font-size="16" font-weight="600" text-anchor="middle">+2,932</text>
+<text x="1274" y="565" class="muted" font-size="15" text-anchor="middle">North</text>
+<text x="80" y="640" class="muted" font-size="15">All three groupings show positive average change. Group averages are descriptive, not causal.</text>
+</svg>
