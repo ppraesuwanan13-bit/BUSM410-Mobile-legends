@@ -4,7 +4,7 @@ This log records checks, corrections, and analysis choices made by the team with
 
 | Category | What it means | Entries |
 |---|---|---:|
-| [Verified a claim](#verified-a-claim) | A claim was checked against BigQuery or documentation. | 11 |
+| [Verified a claim](#verified-a-claim) | A claim was checked against BigQuery or documentation. | 12 |
 | [Caught an error](#caught-an-error) | An incorrect statement, query, or calculation was found. | 4 |
 | [Separated fact from opinion](#separated-fact-from-opinion) | A conclusion was marked as an inference or limit. | 1 |
 | [Changed the analysis](#changed-the-analysis) | Evidence changed the project approach. | 2 |
@@ -24,7 +24,8 @@ This log records checks, corrections, and analysis choices made by the team with
 | 15 | 2026-11-19 | The 2014 subscriber gender check returned `male`, `female`, and `unknown`. | Reviewed the BigQuery result grouped by `gender` for subscriber rides. | Counts were 5,635,912 male, 1,650,252 female, and 1,557 unknown. The station table's female share uses known male/female records in its denominator. The team should confirm this definition matches the assignment. |
 | 16 | 2026-11-19 | An earlier regression run reported latitude as the only predictor with p < 0.05. | Reviewed the BigQuery `ML.ADVANCED_WEIGHTS` output and model details; see [model card](../model/model_card.md). | Latitude coefficient was +51,542.5 rides per degree (p = 0.000619). That run's metrics used the same 311 stations for fitting and evaluation. The corrected final model options are described in entry 17. This is an association, not a cause. |
 | 17 | 2026-11-19 | The corrected model run followed the assignment options and produced an evaluation result. | Reviewed BigQuery's successful query status, `ML.EVALUATE` result, and `ML.ADVANCED_WEIGHTS` output. | Confirmed `r2_score` 0.079209, MAE 2,595.0 rides, and latitude as the only predictor with p < 0.05. There is no holdout because the analysis table has 311 rows. AI helped prepare the query and summarize output; the team should review the SQL and results. |
-| 19 | 2026-11-19 | The exact-value statement in query 14 ran in the team's BigQuery project. | Checked the completed job and result count in BigQuery. | Confirmed that the query completed and returned 886 predictor-value rows. The actual row values still need team review. The query's second statement for the chart-tercile comparison has not yet been run. |
+| 19 | 2026-11-19 | The exact-value statement in query 14 ran in the team's BigQuery project. | Checked the completed job and result count in BigQuery. | Confirmed that the query completed and returned 886 predictor-value rows. The team should review the observed-value patterns before presenting them. |
+| 20 | 2026-11-19 | The second statement in query 14 checked the tercile means used in the chart. | Reviewed the completed BigQuery result table with 9 predictor-group rows. | Confirmed each predictor had group sizes 104, 104, and 103. The nine means matched the chart and query log: subscriber share +2,260.1/+1,746.3/+2,372.0; weekday peak share +2,412.8/+1,869.8/+2,093.1; latitude +841.1/+2,611.0/+2,931.7. |
 
 ## Caught an error
 

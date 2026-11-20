@@ -1,7 +1,7 @@
 -- Compare the CP2 outcome with three 2014 station predictors.
 -- Query 1 groups by each observed numeric value, as requested in CP2 Part A.
 -- Query 2 summarizes the terciles used in the station-group chart.
--- Run both in BigQuery and compare Query 2 with the previously recorded means.
+-- Run each statement in BigQuery. The second statement's 9 tercile means matched the chart on 2026-11-19.
 WITH station_values AS (
   SELECT
     'Subscriber share' AS predictor,
